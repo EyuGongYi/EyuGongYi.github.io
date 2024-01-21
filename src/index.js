@@ -32,7 +32,6 @@ class Projectile{
         con.fill()
     }
 }
-const
 const player = new Player(canvas.width/2, canvas.height/2, 30, "blue")
 player.draw()
 window.addEventListener("click",(event)=>{
