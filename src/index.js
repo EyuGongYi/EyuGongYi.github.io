@@ -32,10 +32,27 @@ class Projectile{
         con.fill()
     }
 }
+
+class UI{
+    constructor() {
+        this.entities = [];
+    }
+    draw() {
+        for (let i = 0; i < this.entities; i++) {
+            this.entities[i].draw()
+        }
+    }
+    append(object) {
+        this.entities.append(object)
+    }
+}
+const ui = new UI();
 const player = new Player(canvas.width/2, canvas.height/2, 30, "blue")
-player.draw()
+ui.append(player)
+ui.draw()
 window.addEventListener("click",(event)=>{
     con.clearRect(0,0,canvas.width, canvas.height)
     const projectile = new Projectile(event.clientX, event.clientY, 30, "red", null)
-    projectile.draw()
+    ui.append(projectile)
+    ui.draw()
 })
